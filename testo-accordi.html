@@ -4,348 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Testo e Accordi - Se sapessi di me</title>
-    <style>
-      body {
-        background-color: #17171C;
-        color: #F5F5E9;
-        font-family: "Courier New", Courier, monospace;
-        font-weight: 300;
-        padding: 20px;
-        margin: 0; 
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding-top: 90px; 
-      }
-
-     
-      .toolbar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background-color: #1E1E24;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-        padding: 12px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 20px;
-        flex-wrap: wrap;
-        z-index: 1000;
-        box-sizing: border-box;
-      }
-      .tool-group {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 13px;
-        font-weight: bold;
-      }
-      .btn-tool {
-        background-color: transparent;
-        border: 1px solid rgba(245, 245, 233, 0.4);
-        color: #F5F5E9;
-        padding: 6px 12px;
-        border-radius: 4px;
-        cursor: pointer;
-        font-family: "Courier New", Courier, monospace;
-        font-weight: bold;
-        font-size: 13px;
-        transition: all 0.2s;
-      }
-      .btn-tool:hover {
-        background-color: #F5F5E9;
-        color: #17171C;
-        border-color: #F5F5E9;
-      }
-      .btn-tool.active {
-        background-color: #ff9800; 
-        color: #17171C;
-        border-color: #ff9800;
-      }
-      select.btn-tool {
-        background-color: #1E1E24;
-      }
-
-      h1 {
-        font-weight: 400;
-        font-size: 32px;
-        letter-spacing: 1px;
-        margin-bottom: 5px;
-        text-align: center;
-      }
-      h2 {
-        font-weight: 300;
-        font-size: 16px;
-        letter-spacing: 2px;
-        margin-top: 5px;
-        margin-bottom: 30px;
-        opacity: 0.6;
-        text-align: center;
-      }
-
-      .canzoniere {
-        font-size: 15px;
-        line-height: 2;
-        max-width: 600px;
-        width: 100%;
-        margin: 0 auto;
-        text-align: left;
-        white-space: pre;
-        background-color: #1E1E24;
-        padding: 30px;
-        border-radius: 6px;
-        overflow-x: auto;
-        box-sizing: border-box;
-      }
-
-      .chord {
-        font-weight: bold;
-        color: #ff9800; /
-      }
-
-      .torna-indietro {
-        display: inline-block;
-        margin: 40px auto;
-        color: #F5F5E9;
-        text-decoration: none;
-        font-size: 14px;
-        opacity: 0.6;
-        border-bottom: 1px solid transparent;
-        transition: all 0.2s;
-      }
-      .torna-indietro:hover {
-        opacity: 1;
-        border-bottom: 1px solid #F5F5E9;
-      }
-    </style>
-  </head>
-  <body>
-
-    <div class="toolbar">
-      <div class="tool-group">
-        <span>TONALITÀ:</span>
-        <button class="btn-tool" onclick="transpose(-1)">-1 Semitono</button>
-        <span id="key-offset" style="min-width: 30px; text-align: center;">0</span>
-        <button class="btn-tool" onclick="transpose(1)">+1 Semitono</button>
-      </div>
-      
-      <div class="tool-group">
-        <span>AUTOSCROLL:</span>
-        <button id="scroll-btn" class="btn-tool" onclick="toggleScroll()">AVVIA</button>
-        <select id="scroll-speed" class="btn-tool" onchange="updateSpeed()">
-          <option value="40">Lento</option>
-          <option value="25" selected>Normale</option>
-          <option value="15">Veloce</option>
-        </select>
-      </div>
-    </div>
-    
-    <div style="max-width: 800px; width: 100%; text-align: center;">
-      
-      <h1>Se sapessi di me</h1>
-      <h2>Testo e Accordi</h2>
-      
-      <pre class="canzoniere">
-[INFO]
-Capotasto: 3° Tasto
-
-[Strofa 1]
-<span class="chord">Lam</span>                          <span class="chord">Fa</span>
-  Io il silenzio non lo ascolto mai
-                         <span class="chord">Do</span>
-  Sono mille cose che non sai
-                           <span class="chord">Sol</span>
-  Tra i miei tagli che non cucirò 
-      <span class="chord">Lam</span>
-  Ancora 
-                            <span class="chord">Fa</span>
-  Provo a ripararli con lo scotch
-                         <span class="chord">Do</span>
-  Sono mille cose che non so 
-                           <span class="chord">Sol</span>
-  Ho il timore che non capirai 
-              <span class="chord">Lam</span>
-  Ma stanotte tu
-
-[Pre-Ritornello]
-                      <span class="chord">Fa</span>
-  Guardami mentre cado a pezzi
-                             <span class="chord">Do</span>
-  Mentre il muro sulle mani lascia i lividi
-                      <span class="chord">Sol</span>
-  Uccidimi, strappa la mia faccia dagli specchi 
-           <span class="chord">Lam</span>
-  Vorrei mi vedessi 
-                 <span class="chord">Fa</span>
-  Mentre perdo i sensi 
-
-[Ritornello]
-           <span class="chord">Do</span>           <span class="chord">Sol</span>
-  E se sapessi di me
-                             <span class="chord">Lam</span>
-  Che ho il terrore di chiudere gli occhi 
-                            <span class="chord">Fa</span>
-  Che i miei sogni siano i vostri
-                              <span class="chord">Do</span>
-  E che i disegni siano scarabocchi 
-           <span class="chord">Sol</span>
-  E se sapessi di me
-                           <span class="chord">Lam</span>
-  Che piuttosto che restare sola 
-                        <span class="chord">Fa</span>
-  Mi confondo in mezzo alla gente
-                             <span class="chord">Do</span>       <span class="chord">Sol</span>
-  Perché sto vuoto pesa più del niente 
-
-[Strofa 2]
-<span class="chord">Lam</span>                                        <span class="chord">Fa</span>
-  Dove tutti ridono sono la sola seria
-                                        <span class="chord">Do</span>
-  Dove tutti soli io sono la sola sera 
-                               <span class="chord">Sol</span>
-  Nelle lacrime che provo a trattenere 
-                                   <span class="chord">Lam</span>
-  Nelle vene nel veleno nel bicchiere, nelle mie preghiere 
-                         <span class="chord">Fa</span>
-  Se poi crollerà tutto quanto se poi tornerà tutto calmo 
-                     <span class="chord">Do</span>
-  La mia pace sarà traguardo 
-                      <span class="chord">Sol</span>
-  La mia pena sarà stendardo
-                                <span class="chord">Lam</span>
-  Se per stare bene schivo tutti i perché 
-                                       <span class="chord">Fa</span>
-  E per uscire mi travesto dall'idea che tu hai di me
-
-[Pre-Ritornello]
-                      <span class="chord">Do</span>
-  Guardami mentre cado a pezzi
-                             <span class="chord">Sol</span>
-  Mentre il muro sulle mani lascia i lividi
-                      <span class="chord">Lam</span>
-  Uccidimi, strappa la mia faccia dagli specchi 
-           <span class="chord">Fa</span>
-  Vorrei mi vedessi 
-                 <span class="chord">Do</span>       <span class="chord">Sol</span>
-  Mentre perdo i sensi 
-
-[Ritornello]
-           <span class="chord">Lam</span>          <span class="chord">Fa</span>
-  E se sapessi di me
-                             <span class="chord">Do</span>
-  Che ho il terrore di chiudere gli occhi 
-                            <span class="chord">Sol</span>
-  Che i miei sogni siano i vostri
-                              <span class="chord">Lam</span>
-  E che i disegni siano scarabocchi 
-           <span class="chord">Fa</span>
-  E se sapessi di me
-                           <span class="chord">Do</span>
-  Che piuttosto che restare sola 
-                        <span class="chord">Sol</span>
-  Mi confondo in mezzo alla gente
-                             <span class="chord">Lam</span>      <span class="chord">Fa</span>
-  Perché sto vuoto pesa più del niente
-
-[Outro]
-           <span class="chord">Do</span>           <span class="chord">Sol</span>
-  E se sapessi di me
-                             <span class="chord">Lam</span>
-  Che ho il terrore di chiudere gli occhi 
-                            <span class="chord">Fa</span>
-  Che i miei sogni siano i vostri
-                              <span class="chord">Do</span>
-  E che i disegni siano scarabocchi 
-           <span class="chord">Sol</span>
-  E se sapessi di me
-                           <span class="chord">Lam</span>
-  Che piuttosto che restare sola 
-                        <span class="chord">Fa</span>
-  Mi confondo in mezzo alla gente
-                             <span class="chord">Do</span>
-  Perché sto vuoto pesa più del niente
-      </pre>
-      
-      <a href="index.html" class="torna-indietro">← Torna ai ringraziamenti</a>
-      
-    </div>
-
-    <script>
-      
-      const chordsScale = ["Do", "Do#", "Re", "Re#", "Mi", "Fa", "Fa#", "Sol", "Sol#", "La", "La#", "Si"];
-      const chordsScaleLower = ["do", "do#", "re", "re#", "mi", "fa", "fa#", "sol", "sol#", "la", "la#", "si"];
-      let currentOffset = 0;
-
-      function transpose(semitones) {
-        currentOffset += semitones;
-        document.getElementById('key-offset').innerText = (currentOffset > 0 ? '+' : '') + currentOffset;
-        
-        const chordElements = document.querySelectorAll('.chord');
-        chordElements.forEach(el => {
-          let originalChord = el.getAttribute('data-original');
-          if (!originalChord) {
-            originalChord = el.innerText;
-            el.setAttribute('data-original', originalChord);
-          }
-          el.innerText = shiftChord(originalChord, currentOffset);
-        });
-      }
-
-      function shiftChord(chord, semitones) {
-        let match = chord.match(/^([A-Za-zXZzàéèíòóù#]+)(.*)$/);
-        if (!match) return chord;
-        
-        let root = match[1];
-        let extension = match[2];
-        
-        let formattedRoot = root.charAt(0).toUpperCase() + root.slice(1).toLowerCase();
-        
-        let index = chordsScale.indexOf(formattedRoot);
-        if (index === -1) return chord;
-        
-        let newIndex = (index + semitones) % 12;
-        if (newIndex < 0) newIndex += 12;
-        
-        return chordsScale[newIndex] + extension;
-      }
-      let scrollInterval = null;
-      let isScrolling = false;
-
-      function toggleScroll() {
-        const btn = document.getElementById('scroll-btn');
-        if (isScrolling) {
-          clearInterval(scrollInterval);
-          btn.innerText = "AVVIA";
-          btn.classList.remove('active');
-          isScrolling = false;
-        } else {
-          const speed = parseInt(document.getElementById('scroll-speed').value);
-          scrollInterval = setInterval(() => {
-            window.scrollBy(0, 1);
-          }, speed);
-          btn.innerText = "FERMA";
-          btn.classList.add('active');
-          isScrolling = true;
-        }
-      }
-
-      function updateSpeed() {
-        if (isScrolling) {
-          toggleScroll();
-          toggleScroll();
-        }
-      }
-    </script>
-  </body>
-</html>
-<!DOCTYPE html>
-<html lang="it">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Testo e Accordi - Se sapessi di me</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
       body {
@@ -358,7 +16,7 @@ Capotasto: 3° Tasto
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding-top: 90px; 
+        padding-top: 90px;
       }
 
      
@@ -403,7 +61,7 @@ Capotasto: 3° Tasto
         border-color: #F5F5E9;
       }
       .btn-tool.active {
-        background-color: #ff9800; 
+        background-color: #ff9800;
         color: #17171C;
         border-color: #ff9800;
       }
@@ -477,9 +135,9 @@ Capotasto: 3° Tasto
         <span>AUTOSCROLL:</span>
         <button id="scroll-btn" class="btn-tool" onclick="toggleScroll()">AVVIA</button>
         <select id="scroll-speed" class="btn-tool" onchange="updateSpeed()">
-          <option value="40">Lento</option>
-          <option value="25" selected>Normale</option>
-          <option value="15">Veloce</option>
+          <option value="0.4">Lento</option>
+          <option value="1.0" selected>Normale</option>
+          <option value="2.2">Veloce</option>
         </select>
       </div>
     </div>
@@ -608,73 +266,68 @@ Capotasto: 3° Tasto
     </div>
 
     <script>
-      const chordsScale = ["Do", "Do#", "Re", "Re#", "Mi", "Fa", "Fa#", "Sol", "Sol#", "La", "La#", "Si"];
-      const mapping = {
-        "do": 0, "do#": 1, "re": 2, "re#": 3, "mi": 4, "fa": 5, "fa#": 6, "sol": 7, "sol#": 8, "la": 9, "la#": 10, "si": 11,
-        "Do": 0, "Do#": 1, "Re": 2, "Re#": 3, "Mi": 4, "Fa": 5, "Fa#": 6, "Sol": 7, "Sol#": 8, "La": 9, "La#": 10, "Si": 11
-      };
-      
-      let currentOffset = 0;
+      const scale = ["Do", "Do#", "Re", "Re#", "Mi", "Fa", "Fa#", "Sol", "Sol#", "La", "La#", "Si"];
+      const noteMap = { "do":0, "do#":1, "re":2, "re#":3, "mi":4, "fa":5, "fa#":6, "sol":7, "sol#":8, "la":9, "la#":10, "si":11 };
+      let globalOffset = 0;
 
-      function transpose(semitones) {
-        currentOffset += semitones;
-        document.getElementById('key-offset').innerText = (currentOffset > 0 ? '+' : '') + currentOffset;
+      function transpose(step) {
+        globalOffset += step;
+        document.getElementById('key-offset').innerText = (globalOffset > 0 ? '+' : '') + globalOffset;
         
-        const chordElements = document.querySelectorAll('.c');
-        chordElements.forEach(el => {
-          let originalChord = el.getAttribute('data-orig');
-          if (!originalChord) {
-            originalChord = el.innerText.trim();
-            el.setAttribute('data-orig', originalChord);
+        document.querySelectorAll('.c').forEach(el => {
+          if (!el.hasAttribute('data-orig')) {
+            el.setAttribute('data-orig', el.innerText.trim());
           }
-          el.innerText = shiftChord(originalChord, currentOffset);
+          let orig = el.getAttribute('data-orig');
+          
+         
+          let match = orig.match(/^([A-Za-z#]+)(.*)$/);
+          if (match) {
+            let root = match[1];
+            let ext = match[2];
+            let rootLower = root.toLowerCase();
+            
+            if (noteMap[rootLower] !== undefined) {
+              let curIdx = noteMap[rootLower];
+              let newIdx = (curIdx + globalOffset) % 12;
+              if (newIndex = newIdx < 0) newIdx += 12;
+              el.innerText = scale[newIdx] + ext;
+            }
+          }
         });
       }
 
-      function shiftChord(chord, semitones) {
-        // Riconosce la nota iniziale (anche con il diesis) e separa la "m" o altre estensioni
-        let match = chord.match(/^([A-Za-z#àéèíòóù]+)(.*)$/);
-        if (!match) return chord;
-        
-        let root = match[1];
-        let extension = match[2];
-        
-        // Trova la posizione della nota nella scala
-        let index = mapping[root];
-        if (index === undefined) return chord;
-        
-        let newIndex = (index + semitones) % 12;
-        if (newIndex < 0) newIndex += 12;
-        
-        return chordsScale[newIndex] + extension;
-      }
-
-      let scrollInterval = null;
+      
+      let scrollId = null;
       let isScrolling = false;
+      let currentPos = window.scrollY;
 
       function toggleScroll() {
         const btn = document.getElementById('scroll-btn');
         if (isScrolling) {
-          clearInterval(scrollInterval);
+          cancelAnimationFrame(scrollId);
           btn.innerText = "AVVIA";
           btn.classList.remove('active');
           isScrolling = false;
         } else {
-          const speed = parseInt(document.getElementById('scroll-speed').value);
-          scrollInterval = setInterval(() => {
-            window.scrollBy(0, 1);
-          }, speed);
           btn.innerText = "FERMA";
           btn.classList.add('active');
           isScrolling = true;
+          currentPos = window.scrollY;
+          runScroll();
         }
       }
 
+      function runScroll() {
+        if (!isScrolling) return;
+        const speed = parseFloat(document.getElementById('scroll-speed').value);
+        currentPos += speed / 2; 
+        window.scrollTo(0, Math.floor(currentPos));
+        scrollId = requestAnimationFrame(runScroll);
+      }
+
       function updateSpeed() {
-        if (isScrolling) {
-          toggleScroll();
-          toggleScroll();
-        }
+       
       }
     </script>
  </body>
