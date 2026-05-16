@@ -19,7 +19,6 @@
         padding-top: 90px;
       }
 
-     
       .toolbar {
         position: fixed;
         top: 0;
@@ -280,7 +279,6 @@ Capotasto: 3° Tasto
           }
           let orig = el.getAttribute('data-orig');
           
-         
           let match = orig.match(/^([A-Za-z#]+)(.*)$/);
           if (match) {
             let root = match[1];
@@ -290,14 +288,13 @@ Capotasto: 3° Tasto
             if (noteMap[rootLower] !== undefined) {
               let curIdx = noteMap[rootLower];
               let newIdx = (curIdx + globalOffset) % 12;
-              if (newIndex = newIdx < 0) newIdx += 12;
+              if (newIdx < 0) newIdx += 12;
               el.innerText = scale[newIdx] + ext;
             }
           }
         });
       }
 
-      
       let scrollId = null;
       let isScrolling = false;
       let currentPos = window.scrollY;
