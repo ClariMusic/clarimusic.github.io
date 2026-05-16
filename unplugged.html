@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Versione Unplugged - Se sapessi di me</title>
+    <style>
+      body {
+        background-color: #17171C;
+        color: #F5F5E9;
+        font-family: "Courier New", Courier, monospace;
+        font-weight: 300;
+        padding: 20px;
+        margin: 0; 
+        display: flex;
+        justify-content: center;
+      }
+      h1 {
+        font-weight: 400;
+        font-size: 32px;
+        letter-spacing: 1px;
+        margin-bottom: 5px;
+      }
+      h2 {
+        font-weight: 300;
+        font-size: 16px;
+        letter-spacing: 2px;
+        margin-top: 5px;
+        margin-bottom: 40px;
+        opacity: 0.6;
+      }
+      .video-container {
+        position: relative;
+        padding-bottom: 56.25%; 
+        padding-top: 30px; 
+        height: 0; 
+        overflow: hidden;
+        max-width: 800px;
+        margin: 0 auto;
+        border-radius: 6px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
+      }
+      .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      .torna-indietro {
+        display: inline-block;
+        margin-top: 40px;
+        color: #F5F5E9;
+        text-decoration: none;
+        font-size: 14px;
+        opacity: 0.6;
+        border-bottom: 1px solid transparent;
+        transition: all 0.2s;
+      }
+      .torna-indietro:hover {
+        opacity: 1;
+        border-bottom: 1px solid #F5F5E9;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <div style="max-width: 900px; width: 100%; text-align: center;">
+      
+      <h1>Se sapessi di me</h1>
+      <h2>Versione Unplugged </h2>
+      
+      <div class="video-container">
+        <iframe 
+          src="https://www.youtube.com/embed/dGfHmOIPMtU" 
+          title="Se sapessi di me - Versione Unplugged" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen>
+        </iframe>
+      </div>
+      
+      <a href="index.html" class="torna-indietro">← Torna alla home</a>
+      
+    </div>
+
+  </body>
+</html>
