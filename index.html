@@ -19,7 +19,7 @@
         padding-top: 90px;
       }
 
-      /* BARRA STRUMENTI STILE ULTIMATE GUITAR */
+   
       .toolbar {
         position: fixed;
         top: 0;
@@ -276,15 +276,15 @@ Capotasto: 3° Tasto
         
         document.querySelectorAll('.c').forEach(el => {
           if (!el.hasAttribute('data-orig')) {
-            // Pulisce il testo iniziale eliminando spazi e a capo nascosti
+
             el.setAttribute('data-orig', el.innerText.trim());
           }
           let orig = el.getAttribute('data-orig');
           
-          // Isola i caratteri puliti e divide la nota base da estensioni come "m"
+         
           let match = orig.match(/^([A-Za-z#]+)(.*)$/);
           if (match) {
-            let root = match[1].replace(/[^\w#]/g, ''); // PULIZIA TOTALE: elimina qualsiasi residuo strano
+            let root = match[1].replace(/[^\w#]/g, ''); 
             let ext = match[2];
             let rootLower = root.toLowerCase();
             
