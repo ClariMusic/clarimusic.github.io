@@ -19,6 +19,7 @@
         padding-top: 90px;
       }
 
+      
       .toolbar {
         position: fixed;
         top: 0;
@@ -230,7 +231,7 @@ Capotasto: 3° Tasto
    <span class="c">Do</span>                         
   Che i miei sogni siano i vostri
             <span class="c">Sol</span>                  
-  E che i disegni siano scarabocchi 
+  E ... che i disegni siano scarabocchi 
         <span class="c">Lam</span>   
   E se sapessi di me
         <span class="c">Fa</span>                   
@@ -266,7 +267,7 @@ Capotasto: 3° Tasto
 
     <script>
       const scale = ["Do", "Do#", "Re", "Re#", "Mi", "Fa", "Fa#", "Sol", "Sol#", "La", "La#", "Si"];
-      const noteMap = { "do":0, "do#":1, "re":2, "re#":3, "mi":4, "fa":5, "fa#":6, "sol":7, "sol#":8, "la":9, "la#":10, "si":11 };
+      const noteMap = { "do": 0, "do#": 1, "re": 2, "re#": 3, "mi": 4, "fa": 5, "fa#": 6, "sol": 7, "sol#": 8, "la": 9, "la#": 10, "si": 11 };
       let globalOffset = 0;
 
       function transpose(step) {
@@ -279,7 +280,9 @@ Capotasto: 3° Tasto
           }
           let orig = el.getAttribute('data-orig');
           
-          let match = orig.match(/^([A-Za-z#]+)(.*)$/);
+        
+          let match = orig.match(/^(Do#|Do|Re#|Re|Mi|Fa#|Fa|Sol#|Sol|La#|La|Si)(.*)$/i);
+          
           if (match) {
             let root = match[1];
             let ext = match[2];
@@ -323,9 +326,7 @@ Capotasto: 3° Tasto
         scrollId = requestAnimationFrame(runScroll);
       }
 
-      function updateSpeed() {
-       
-      }
+      function updateSpeed() {}
     </script>
  </body>
 </html>
