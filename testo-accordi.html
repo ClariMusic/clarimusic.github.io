@@ -609,6 +609,11 @@ Capotasto: 3° Tasto
 
     <script>
       const chordsScale = ["Do", "Do#", "Re", "Re#", "Mi", "Fa", "Fa#", "Sol", "Sol#", "La", "La#", "Si"];
+      const mapping = {
+        "do": 0, "do#": 1, "re": 2, "re#": 3, "mi": 4, "fa": 5, "fa#": 6, "sol": 7, "sol#": 8, "la": 9, "la#": 10, "si": 11,
+        "Do": 0, "Do#": 1, "Re": 2, "Re#": 3, "Mi": 4, "Fa": 5, "Fa#": 6, "Sol": 7, "Sol#": 8, "La": 9, "La#": 10, "Si": 11
+      };
+      
       let currentOffset = 0;
 
       function transpose(semitones) {
@@ -619,7 +624,7 @@ Capotasto: 3° Tasto
         chordElements.forEach(el => {
           let originalChord = el.getAttribute('data-orig');
           if (!originalChord) {
-            originalChord = el.innerText;
+            originalChord = el.innerText.trim();
             el.setAttribute('data-orig', originalChord);
           }
           el.innerText = shiftChord(originalChord, currentOffset);
@@ -627,15 +632,16 @@ Capotasto: 3° Tasto
       }
 
       function shiftChord(chord, semitones) {
-        let match = chord.match(/^([A-Za-z#]+)(.*)$/);
+        // Riconosce la nota iniziale (anche con il diesis) e separa la "m" o altre estensioni
+        let match = chord.match(/^([A-Za-z#àéèíòóù]+)(.*)$/);
         if (!match) return chord;
         
         let root = match[1];
         let extension = match[2];
-        let formattedRoot = root.charAt(0).toUpperCase() + root.slice(1).toLowerCase();
         
-        let index = chordsScale.indexOf(formattedRoot);
-        if (index === -1) return chord;
+        // Trova la posizione della nota nella scala
+        let index = mapping[root];
+        if (index === undefined) return chord;
         
         let newIndex = (index + semitones) % 12;
         if (newIndex < 0) newIndex += 12;
