@@ -340,3 +340,337 @@ Capotasto: 3° Tasto
     </script>
   </body>
 </html>
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testo e Accordi - Se sapessi di me</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+      body {
+        background-color: #17171C;
+        color: #F5F5E9;
+        font-family: "Courier New", Courier, monospace;
+        font-weight: 300;
+        padding: 20px;
+        margin: 0; 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 90px; /* Spazio per la barra strumenti fissa in alto */
+      }
+
+      /* BARRA STRUMENTI STILE ULTIMATE GUITAR */
+      .toolbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #1E1E24;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        padding: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        z-index: 1000;
+        box-sizing: border-box;
+      }
+      .tool-group {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+        font-weight: bold;
+      }
+      .btn-tool {
+        background-color: transparent;
+        border: 1px solid rgba(245, 245, 233, 0.4);
+        color: #F5F5E9;
+        padding: 6px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-family: "Courier New", Courier, monospace;
+        font-weight: bold;
+        font-size: 13px;
+        transition: all 0.2s;
+      }
+      .btn-tool:hover {
+        background-color: #F5F5E9;
+        color: #17171C;
+        border-color: #F5F5E9;
+      }
+      .btn-tool.active {
+        background-color: #ff9800; /* Arancione quando attivo */
+        color: #17171C;
+        border-color: #ff9800;
+      }
+      select.btn-tool {
+        background-color: #1E1E24;
+      }
+
+      h1 {
+        font-weight: 400;
+        font-size: 32px;
+        letter-spacing: 1px;
+        margin-bottom: 5px;
+        text-align: center;
+      }
+      h2 {
+        font-weight: 300;
+        font-size: 16px;
+        letter-spacing: 2px;
+        margin-top: 5px;
+        margin-bottom: 40px;
+        opacity: 0.6;
+        text-align: center;
+      }
+      .canzoniere {
+        font-size: 15px;
+        line-height: 2;
+        max-width: 600px;
+        width: 100%;
+        margin: 0 auto;
+        text-align: left;       
+        white-space: pre;        
+        background-color: #1E1E24; 
+        padding: 30px;
+        border-radius: 6px;
+        overflow-x: auto;      
+        box-sizing: border-box;
+      }
+      
+      /* Colore arancione discreto per gli accordi, super leggibile */
+      .c {
+        font-weight: bold;
+        color: #ff9800;
+      }
+
+      .torna-indietro {
+        display: inline-block;
+        margin-top: 40px;
+        color: #F5F5E9;
+        text-decoration: none;
+        font-size: 14px;
+        opacity: 0.6;
+        border-bottom: 1px solid transparent;
+        transition: all 0.2s;
+      }
+      .torna-indietro:hover {
+        opacity: 1;
+        border-bottom: 1px solid #F5F5E9;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="toolbar">
+      <div class="tool-group">
+        <span>TONALITÀ:</span>
+        <button class="btn-tool" onclick="transpose(-1)">-1</button>
+        <span id="key-offset" style="min-width: 25px; text-align: center;">0</span>
+        <button class="btn-tool" onclick="transpose(1)">+1</button>
+      </div>
+      
+      <div class="tool-group">
+        <span>AUTOSCROLL:</span>
+        <button id="scroll-btn" class="btn-tool" onclick="toggleScroll()">AVVIA</button>
+        <select id="scroll-speed" class="btn-tool" onchange="updateSpeed()">
+          <option value="40">Lento</option>
+          <option value="25" selected>Normale</option>
+          <option value="15">Veloce</option>
+        </select>
+      </div>
+    </div>
+
+    <div style="max-width: 800px; width: 100%; text-align: center;">
+
+      <h1>Se sapessi di me</h1>
+      <h2>Testo e Accordi</h2>
+
+      <pre class="canzoniere">[INFO]
+Accordi: Lam, Fa, Do, Sol
+Capotasto: 3° Tasto
+
+[Strofa 1]
+<span class="c">Lam</span>                             <span class="c">Fa</span>
+  Io il silenzio non lo ascolto mai
+                           <span class="c">Do</span>
+  Sono mille cose che non sai
+                            <span class="c">Sol</span>
+  Tra i miei tagli che non cucirò ancora 
+   <span class="c">Lam</span>                         <span class="c">Fa</span>
+  Provo a ripararli con lo scotch
+                          <span class="c">Do</span>
+  Sono mille cose che non so 
+                           <span class="c">Sol</span>
+  Ho il timore che non capirai ma stanotte tu
+
+[Pre-Ritornello]
+  <span class="c">Lam</span>                       
+  Guardami mentre cado a pezzi
+  <span class="c">Fa</span>                           
+  Mentre il muro sulle mani lascia i lividi
+             <span class="c">Do</span>         
+  Uccidimi, strappa la mia faccia dagli specchi 
+             <span class="c">Sol</span>
+  Vorrei mi vedessi mentre perdo i sensi 
+
+[Ritornello]
+        <span class="c">Lam</span>           
+  E se sapessi di me
+            <span class="c">Fa</span>                 
+  Che ho il terrore di chiudere gli occhi 
+   <span class="c">Do</span>                         
+  Che i miei sogni siano i vostri
+            <span class="c">Sol</span>                  
+  E che i disegni siano scarabocchi 
+        <span class="c">Lam</span>   
+  E se sapessi di me
+        <span class="c">Fa</span>                   
+  Che piuttosto che restare sola 
+       <span class="c">Do</span>                 
+  Mi confondo in mezzo alla gente
+              <span class="c">Fa</span>       <span class="c">Do</span>       <span class="c">Sol</span>    <span class="c">Lam</span>   <span class="c">Sol</span>      
+  Perché sto vuoto pesa più del niente 
+
+[Strofa 2]
+<span class="c">Lam</span>                                        
+  Dove tutti ridono sono la sola seria
+  <span class="c">Fa</span>                                       
+  Dove tutti soli io sono la sola sera 
+          <span class="c">Do</span>                     
+  Nelle lacrime che provo a trattenere 
+                  <span class="c">Sol</span>                 
+  Nelle vene nel veleno nel bicchiere, nelle mie preghiere 
+  <span class="c">Lam</span>                       
+  Se poi crollerà tutto quanto se poi tornerà tutto calmo 
+          <span class="c">Fa</span>           
+  La mia pace sarà traguardo 
+
+  La mia pena sarà stendardo
+ <span class="c">Do</span>                               
+  Se per stare bene schivo tutti i perché 
+         <span class="c">Sol</span>                              
+  E per uscire mi travesto dall'idea che tu hai di me
+
+[Pre-Ritornello]
+  <span class="c">Lam</span>                       
+  Guardami mentre cado a pezzi
+  <span class="c">Fa</span>                           
+  Mentre il muro sulle mani lascia i lividi
+             <span class="c">Do</span>         
+  Uccidimi, strappa la mia faccia dagli specchi 
+             <span class="c">Sol</span>
+  Vorrei mi vedessi mentre perdo i sensi 
+
+[Ritornello]
+        <span class="c">Lam</span>           
+  E se sapessi di me
+            <span class="c">Fa</span>                 
+  Che ho il terrore di chiudere gli occhi 
+   <span class="c">Do</span>                         
+  Che i miei sogni siano i vostri
+            <span class="c">Sol</span>                  
+  E che i disegni siano scarabocchi 
+        <span class="c">Lam</span>   
+  E se sapessi di me
+        <span class="c">Fa</span>                   
+  Che piuttosto che restare sola 
+       <span class="c">Do</span>                 
+  Mi confondo in mezzo alla gente
+              <span class="c">Fa</span>       <span class="c">Do</span>       <span class="c">Sol</span>    <span class="c">Lam</span>   <span class="c">Sol</span>      
+  Perché sto vuoto pesa più del niente 
+
+[Assolo] <span class="c">Lam</span> <span class="c">Fa</span> <span class="c">Do</span> <span class="c">Sol</span>
+
+[Outro]
+        <span class="c">Lam</span>           
+  E se sapessi di me
+            <span class="c">Fa</span>                 
+  Che ho il terrore di chiudere gli occhi 
+   <span class="c">Do</span>                         
+  Che i miei sogni siano i vostri
+            <span class="c">Sol</span>                  
+  E che i disegni siano scarabocchi 
+        <span class="c">Lam</span>   
+  E se sapessi di me
+        <span class="c">Fa</span>                   
+  Che piuttosto che restare sola 
+       <span class="c">Do</span>                 
+  Mi confondo in mezzo alla gente
+              <span class="c">Fa</span>       <span class="c">Do</span>       <span class="c">Sol</span>    <span class="c">Lam</span>   <span class="c">Sol</span>      
+  Perché sto vuoto pesa più del niente</pre>
+
+      <a href="index.html" class="torna-indietro">← Torna alla home</a>
+
+    </div>
+
+    <script>
+      const chordsScale = ["Do", "Do#", "Re", "Re#", "Mi", "Fa", "Fa#", "Sol", "Sol#", "La", "La#", "Si"];
+      let currentOffset = 0;
+
+      function transpose(semitones) {
+        currentOffset += semitones;
+        document.getElementById('key-offset').innerText = (currentOffset > 0 ? '+' : '') + currentOffset;
+        
+        const chordElements = document.querySelectorAll('.c');
+        chordElements.forEach(el => {
+          let originalChord = el.getAttribute('data-orig');
+          if (!originalChord) {
+            originalChord = el.innerText;
+            el.setAttribute('data-orig', originalChord);
+          }
+          el.innerText = shiftChord(originalChord, currentOffset);
+        });
+      }
+
+      function shiftChord(chord, semitones) {
+        let match = chord.match(/^([A-Za-z#]+)(.*)$/);
+        if (!match) return chord;
+        
+        let root = match[1];
+        let extension = match[2];
+        let formattedRoot = root.charAt(0).toUpperCase() + root.slice(1).toLowerCase();
+        
+        let index = chordsScale.indexOf(formattedRoot);
+        if (index === -1) return chord;
+        
+        let newIndex = (index + semitones) % 12;
+        if (newIndex < 0) newIndex += 12;
+        
+        return chordsScale[newIndex] + extension;
+      }
+
+      let scrollInterval = null;
+      let isScrolling = false;
+
+      function toggleScroll() {
+        const btn = document.getElementById('scroll-btn');
+        if (isScrolling) {
+          clearInterval(scrollInterval);
+          btn.innerText = "AVVIA";
+          btn.classList.remove('active');
+          isScrolling = false;
+        } else {
+          const speed = parseInt(document.getElementById('scroll-speed').value);
+          scrollInterval = setInterval(() => {
+            window.scrollBy(0, 1);
+          }, speed);
+          btn.innerText = "FERMA";
+          btn.classList.add('active');
+          isScrolling = true;
+        }
+      }
+
+      function updateSpeed() {
+        if (isScrolling) {
+          toggleScroll();
+          toggleScroll();
+        }
+      }
+    </script>
+ </body>
+</html>
