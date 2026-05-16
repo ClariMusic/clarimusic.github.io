@@ -21,7 +21,7 @@
         width:100%;
         height:auto;
         display:block;
-        margin: 20px auto;
+        margin: 20px auto 5px auto; 
         border-radius: 0px;
       }
       h1 {
@@ -47,37 +47,77 @@
         box-sizing: border-box;
         display: block;
       }
+      .box-pulsanti {
+        margin: 40px auto;
+        max-width: 900px;
+        display: flex;
+        flex-direction: row;   
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;      
+        gap: 15px;             
+      }
+      
+      .bottone-regalo {
+        display: inline-flex;  
+        align-items: center;
+        color: #F5F5E9;       
+        background-color: transparent;
+        border: 1px solid rgba(245, 245, 233, 0.4); 
+        font-family: "Courier New", Courier, monospace;
+        font-size: 13px;
+        font-weight: bold;
+        text-decoration: none;
+        padding: 12px 20px;
+        border-radius: 4px;
+        transition: all 0.2s ease-in-out;
+        white-space: nowrap;   
+      }
+      
+      
+      .bottone-regalo:hover {
+        background-color: #F5F5E9; 
+        color: #17171C;            
+        border: 1px solid #F5F5E9;
+        transform: translateY(-2px); 
+      }
+      
+      
+      .bottone-regalo i {
+        margin-right: 10px;
+        font-size: 16px;
+      }
+
       .ringraziamenti { 
         font-size: 15px;
         line-height: 1.8;
         max-width: 800px;
-        margin: 20px auto 0 auto;
+        margin: 40px auto 0 auto;
         text-align: center;
         white-space: pre-line;
       }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   </head>
   <body>
     
-    <div style="max-width: 900px;
-      width: 100%; text-align: center; 
-      margin: 0 auto;">
-     <h1> GRAZIE </h1>
+    <div style="max-width: 900px; width: 100%; text-align: center; margin: 0 auto;">
+      <h1> GRAZIE </h1>
       <h2> Se sapessi di me </h2>
-      <img
-        src="copertina.jpg.jpg"
-        alt="Se sapessi di me- Artwork di Davide Didonna"> 
-    <p class="credits"> Artwork di Davide Didonna </p>
+      <img src="copertina.jpg.jpg" alt="Se sapessi di me- Artwork di Davide Didonna"> 
+      <p class="credits"> Artwork di Davide Didonna </p>
+      
       <div class="box-pulsanti">
-        <a href="unplugged.html"
-          class="bottone-regalo"> Guarda la versione unplugged di "Se sapessi di me" </a>
-        <a href="https://open.spotify.com/track/2PK5T5MrPrGvzocFovXmvK?si=0vzYxyTPQkGy0ptbYzwVnw"
-          target="_blank"
-          class="bottone-regalo"> Ascolta ora su Spotify </a>
-        <a href="testo-accordi.html"
-          class="bottone-regalo"> Testo e accordi </a>
-      <p class="ringraziamenti"> Cari amici... Questo viaggio continua. Oggi esce "SE SAPESSI DI ME", una canzone che rappresenta la parte più fragile di me. Questa canzone mette sul piatto il tutta la rabbia, tutta la tristezza e il grido che sento dentro al cuore. Nasce dall'incontro del mio piccolo mondo con quello del mio produttore, il folle Fulmine, che alcuni di voi avranno probabilmente già conosciuto dal mio profilo. Ciò che è venuto dalle prime chiacchierate è l'immensa paura di restare soli con noi stessi, la paura di un silenzio che non è veramente silenzio ma è il megafono da voce a quei pensieri che non si vuole mai fare. La paura di rimanere da soli con il nostro mostro interiore (per riprendere il filo di "se ne va").  Per scriverla ho dovuto scavare dentro di me, le parole che ascolterete sono ciò che è sanguinato fuori dalla ferita che si è creata. Vi devo ringraziare perchè so che la tratterete con cura. Per farla diventare ancora più vostra in questo spazio "nostro" vi abbiamo lasciato due regalini: il primo è una versione "Unplugged" della canzone. Quando dico "unplagged" intendo seriamente unplagged. Sarà vostra e di tutte le persone con cui deciderete di condividerla. Il secondo Regalino è il testo completo di accordi della canzone. Vi lascio testo e accordi perchè voglio che diventi vostra ancora di più, vorrei sentire come la suonate e come la cantate, bene o male che sia. Vorrei che cantandola e suonandola proviate a tirare fuori tutta quella merda lì che non sa come uscire. Buon divertimento. Vi ringrazio infinitamente per essere parte di questo viaggio.
-      </p>
-    </div>
-  </body>
+        <a href="unplugged.html" class="bottone-regalo">
+          <i class="fa-solid fa-play"></i> Guarda la versione unplugged di "Se sapessi di me"
+        </a>
+        <a href="https://open.spotify.com/track/2PK5T5MrPrGvzocFovXmvK?si=0vzYxyTPQkGy0ptbYzwVnw" target="_blank" class="bottone-regalo">
+          <i class="fa-brands fa-spotify"></i> Ascolta ora su Spotify
+        </a>
+        <a href="testo-accordi.html" class="bottone-regalo">
+          <i class="fa-solid fa-guitar"></i> Testo e accordi
+        </a>
+      </div> <p class="ringraziamenti">Cari amici... Questo viaggio continua. Oggi esce "SE SAPESSI DI ME", una canzone che rappresenta la parte più fragile di me. Questa canzone mette sul piatto il tutta la rabbia, tutta la tristezza e il grido che sento dentro al cuore. Nasce dall'incontro del mio piccolo mondo con quello del mio produttore, il folle Fulmine, che alcuni di voi avranno probabilmente già conosciuto dal mio profilo. Ciò che è venuto dalle prime chiacchierate è l'immensa paura di restare soli con noi stessi, la paura di un silenzio che non è veramente silenzio ma è il megafono da voce a quei pensieri che non si vuole mai fare. La paura di rimanere da soli con il nostro mostro interiore (per riprendere il filo di "se ne va").  Per scriverla ho dovuto scavare dentro di me, le parole che ascolterete sono ciò che è sanguinato fuori dalla ferita che si è creata. Vi devo ringraziare perchè so che la tratterete con cura. Per farla diventare ancora più vostra in questo spazio "nostro" vi abbiamo lasciato due regalini: il primo è una versione "Unplugged" della canzone. Quando dico "unplagged" intendo seriamente unplagged. Sarà vostra e di tutte le persone con cui deciderete di condividerla. Il secondo Regalino è il testo completo di accordi della canzone. Vi lascio testo e accordi perchè voglio che diventi vostra ancora di più, vorrei sentire come la suonate e come la cantate, bene o male che sia. Vorrei che cantandola e suonandola proviate a tirare fuori tutta quella merda lì che non sa come uscire. Buon divertimento. Vi ringrazio infinitamente per essere parte di questo viaggio.</p>
+    
+    </div> </body>
 </html>
