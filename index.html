@@ -2,9 +2,9 @@
 <html lang="it">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Testo e Accordi - Se sapessi di me</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+    <title> GRAZIE per aver presalvato "se sapessi di me"</title>
     <style>
       body {
         background-color: #17171C;
@@ -14,319 +14,114 @@
         padding: 20px;
         margin: 0; 
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding-top: 90px;
+        justify-content: center;
       }
-
-   
-      .toolbar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background-color: #1E1E24;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-        padding: 12px;
+      img {
+        max-width: 250px;
+        width:100%;
+        height:auto;
+        display:block;
+        margin: 20px auto 5px auto; 
+        border-radius: 0px;
+      }
+      h1 {
+        font-weight:400;
+        font-size: 50px;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+      }
+      h2 {font-weight:300;
+          font-size: 16px;
+          letter-spacing: 2px;
+          margin-top: 40px;
+          margin-bottom: 5px;
+          opacity: 0.8;
+         }
+      .credits {
+        font-size: 11px;
+        opacity: 0.5;
+        letter-spacing: 0px;
+        max-width: 250px; 
+        margin: 0 auto;
+        text-align: right;
+        box-sizing: border-box;
+        display: block;
+      }
+      .box-pulsanti {
+        margin: 40px auto;
+        max-width: 900px;
         display: flex;
+        flex-direction: row;   
         justify-content: center;
         align-items: center;
-        gap: 20px;
-        flex-wrap: wrap;
-        z-index: 1000;
-        box-sizing: border-box;
+        flex-wrap: wrap;      
+        gap: 15px;             
       }
-      .tool-group {
-        display: flex;
+
+      .bottone-regalo {
+        display: inline-flex;  
         align-items: center;
-        gap: 8px;
-        font-size: 13px;
-        font-weight: bold;
-      }
-      .btn-tool {
+        color: #F5F5E9;       
         background-color: transparent;
-        border: 1px solid rgba(245, 245, 233, 0.4);
-        color: #F5F5E9;
-        padding: 6px 12px;
-        border-radius: 4px;
-        cursor: pointer;
+        border: 1px solid rgba(245, 245, 233, 0.4); 
         font-family: "Courier New", Courier, monospace;
-        font-weight: bold;
         font-size: 13px;
-        transition: all 0.2s;
-      }
-      .btn-tool:hover {
-        background-color: #F5F5E9;
-        color: #17171C;
-        border-color: #F5F5E9;
-      }
-      .btn-tool.active {
-        background-color: #ff9800;
-        color: #17171C;
-        border-color: #ff9800;
-      }
-      select.btn-tool {
-        background-color: #1E1E24;
-      }
-
-      h1 {
-        font-weight: 400;
-        font-size: 32px;
-        letter-spacing: 1px;
-        margin-bottom: 5px;
-        text-align: center;
-      }
-      h2 {
-        font-weight: 300;
-        font-size: 16px;
-        letter-spacing: 2px;
-        margin-top: 5px;
-        margin-bottom: 40px;
-        opacity: 0.6;
-        text-align: center;
-      }
-      .canzoniere {
-        font-size: 15px;
-        line-height: 2;
-        max-width: 600px;
-        width: 100%;
-        margin: 0 auto;
-        text-align: left;       
-        white-space: pre;        
-        background-color: #1E1E24; 
-        padding: 30px;
-        border-radius: 6px;
-        overflow-x: auto;      
-        box-sizing: border-box;
-      }
-      
-      .c {
         font-weight: bold;
-        color: #ff9800;
+        text-decoration: none;
+        padding: 12px 20px;
+        border-radius: 4px;
+        transition: all 0.2s ease-in-out;
+        white-space: nowrap;   
       }
 
-      .torna-indietro {
-        display: inline-block;
-        margin-top: 40px;
-        color: #F5F5E9;
-        text-decoration: none;
-        font-size: 14px;
-        opacity: 0.6;
-        border-bottom: 1px solid transparent;
-        transition: all 0.2s;
+
+      .bottone-regalo:hover {
+        background-color: #F5F5E9; 
+        color: #17171C;            
+        border: 1px solid #F5F5E9;
+        transform: translateY(-2px); 
       }
-      .torna-indietro:hover {
-        opacity: 1;
-        border-bottom: 1px solid #F5F5E9;
+
+
+      .bottone-regalo i {
+        margin-right: 10px;
+        font-size: 16px;
+      }
+
+      .ringraziamenti { 
+        font-size: 15px;
+        line-height: 1.8;
+        max-width: 800px;
+        margin: 40px auto 0 auto;
+        text-align: center;
+        white-space: pre-line;
       }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   </head>
   <body>
 
-    <div class="toolbar">
-      <div class="tool-group">
-        <span>TONALITÀ:</span>
-        <button class="btn-tool" onclick="transpose(-1)">-1</button>
-        <span id="key-offset" style="min-width: 25px; text-align: center;">0</span>
-        <button class="btn-tool" onclick="transpose(1)">+1</button>
-      </div>
-      
-      <div class="tool-group">
-        <span>AUTOSCROLL:</span>
-        <button id="scroll-btn" class="btn-tool" onclick="toggleScroll()">AVVIA</button>
-        <select id="scroll-speed" class="btn-tool" onchange="updateSpeed()">
-          <option value="0.4">Lento</option>
-          <option value="1.0" selected>Normale</option>
-          <option value="2.2">Veloce</option>
-        </select>
-      </div>
-    </div>
+    <div style="max-width: 900px; width: 100%; text-align: center; margin: 0 auto;">
+      <h1> GRAZIE </h1>
+      <h2> Se sapessi di me </h2>
+      <img src="copertina.jpg.jpg" alt="Se sapessi di me- Artwork di Davide Didonna"> 
+      <p class="credits"> Artwork di Davide Didonna </p>
 
-    <div style="max-width: 800px; width: 100%; text-align: center;">
+      <div class="box-pulsanti">
+        <a href="unplugged.html" class="bottone-regalo">
+          <i class="fa-solid fa-play"></i> Guarda la versione unplugged
+        </a>
+        <a href="https://open.spotify.com/track/2PK5T5MrPrGvzocFovXmvK?si=0vzYxyTPQkGy0ptbYzwVnw" target="_blank" class="bottone-regalo">
+          <i class="fa-brands fa-spotify"></i> Ascolta ora su Spotify
+        </a>
+        <a href="testo-accordi.html" class="bottone-regalo">
+          <i class="fa-solid fa-guitar"></i> Testo e accordi
+        </a>
+      </div> <p class="ringraziamenti">Cari amici... Questo viaggio continua. Oggi esce "SE SAPESSI DI ME", una canzone che rappresenta la parte più fragile di me. Questa canzone mette sul piatto il tutta la rabbia, tutta la tristezza e il grido che sento dentro al cuore. Nasce dall'incontro del mio piccolo mondo con quello del mio produttore, il folle Fulmine, che alcuni di voi avranno probabilmente già conosciuto dal mio profilo. Ciò che è venuto dalle prime chiacchierate è l'immensa paura di restare soli con noi stessi, la paura di un silenzio che non è veramente silenzio ma è il megafono da voce a quei pensieri che non si vuole mai fare. La paura di rimanere da soli con il nostro mostro interiore (per riprendere il filo di "se ne va").  Per scriverla ho dovuto scavare dentro di me, le parole che ascolterete sono ciò che è sanguinato fuori dalla ferita che si è creata. Vi devo ringraziare perchè so che la tratterete con cura. Per farla diventare ancora più vostra in questo spazio "nostro" vi abbiamo lasciato due regalini: il primo è una versione "Unplugged" della canzone. Quando dico "unplagged" intendo seriamente unplagged. Sarà vostra e di tutte le persone con cui deciderete di condividerla. Il secondo Regalino è il testo completo di accordi della canzone. Vi lascio testo e accordi perchè voglio che diventi vostra ancora di più, vorrei sentire come la suonate e come la cantate, bene o male che sia. Vorrei che cantandola e suonandola proviate a tirare fuori tutta quella merda lì che non sa come uscire. Buon divertimento. Vi ringrazio infinitamente per essere parte di questo viaggio.</p>
+      </div> <p class="ringraziamenti">Cari amici... Questo viaggio continua. Oggi esce "SE SAPESSI DI ME", una canzone che rappresenta la parte più fragile di me. Questa canzone mette sul piatto tutta la rabbia, tutta la tristezza e il grido che sento dentro al cuore. Nasce dall'incontro del mio piccolo mondo con quello del mio produttore, il folle Fulmine, che alcuni di voi avranno probabilmente già conosciuto dal mio profilo. Ciò che è venuto dalle prime chiacchierate è l'immensa paura di restare soli con noi stessi, la paura di un silenzio che non è veramente silenzio, ma è il megafono che dà voce a quei pensieri che non si vorrebbero mai fare. La paura di rimanere da soli con il nostro mostro interiore (per riprendere il filo di "se ne va"). Per scriverla ho dovuto scavare dentro di me, le parole che ascolterete sono ciò che è sanguinato fuori dalla ferita che si è creata. Vi devo ringraziare perché so che la tratterete con cura.
+​Per farla diventare ancora più vostra, in questo spazio "nostro" vi abbiamo lasciato due regalini: il primo è una versione "Unplugged" della canzone. Quando dico "unplugged" intendo seriamente unplugged. Sarà vostra e di tutte le persone con cui deciderete di condividerla.
+​Il secondo regalino è il testo completo di accordi della canzone. Vi lascio testo e accordi perché voglio che diventi vostra ancora di più, vorrei sentire come la suonate e come la cantate, bene o male che sia. Vorrei che cantandola e suonandola proviate a tirare fuori tutta quella merda lì che non sa come uscire.
+​Buon divertimento. Vi ringrazio infinitamente per essere parte di questo viaggio.</p>
 
-      <h1>Se sapessi di me</h1>
-      <h2>Testo e Accordi</h2>
-
-      <pre class="canzoniere">[INFO]
-Accordi: Lam, Fa, Do, Sol
-Capotasto: 3° Tasto
-
-[Strofa 1]
-<span class="c">Lam</span>                             <span class="c">Fa</span>
-  Io il silenzio non lo ascolto mai
-                           <span class="c">Do</span>
-  Sono mille cose che non sai
-                            <span class="c">Sol</span>
-  Tra i miei tagli che non cucirò ancora 
-   <span class="c">Lam</span>                         <span class="c">Fa</span>
-  Provo a ripararli con lo scotch
-                          <span class="c">Do</span>
-  Sono mille cose che non so 
-                           <span class="c">Sol</span>
-  Ho il timore che non capirai ma stanotte tu
-
-[Pre-Ritornello]
-  <span class="c">Lam</span>                       
-  Guardami mentre cado a pezzi
-  <span class="c">Fa</span>                           
-  Mentre il muro sulle mani lascia i lividi
-             <span class="c">Do</span>         
-  Uccidimi, strappa la mia faccia dagli specchi 
-             <span class="c">Sol</span>
-  Vorrei mi vedessi mentre perdo i sensi 
-
-[Ritornello]
-        <span class="c">Lam</span>           
-  E se sapessi di me
-            <span class="c">Fa</span>                 
-  Che ho il terrore di chiudere gli occhi 
-   <span class="c">Do</span>                         
-  Che i miei sogni siano i vostri
-            <span class="c">Sol</span>                  
-  E che i disegni siano scarabocchi 
-        <span class="c">Lam</span>   
-  E se sapessi di me
-        <span class="c">Fa</span>                   
-  Che piuttosto che restare sola 
-       <span class="c">Do</span>                 
-  Mi confondo in mezzo alla gente
-              <span class="c">Fa</span>       <span class="c">Do</span>       <span class="c">Sol</span>    <span class="c">Lam</span>   <span class="c">Sol</span>      
-  Perché sto vuoto pesa più del niente 
-
-[Strofa 2]
-<span class="c">Lam</span>                                        
-  Dove tutti ridono sono la sola seria
-  <span class="c">Fa</span>                                       
-  Dove tutti soli io sono la sola sera 
-          <span class="c">Do</span>                     
-  Nelle lacrime che provo a trattenere 
-                  <span class="c">Sol</span>                 
-  Nelle vene nel veleno nel bicchiere, nelle mie preghiere 
-  <span class="c">Lam</span>                       
-  Se poi crollerà tutto quanto se poi tornerà tutto calmo 
-          <span class="c">Fa</span>           
-  La mia pace sarà traguardo 
-
-  La mia pena sarà stendardo
- <span class="c">Do</span>                               
-  Se per stare bene schivo tutti i perché 
-         <span class="c">Sol</span>                              
-  E per uscire mi travesto dall'idea che tu hai di me
-
-[Pre-Ritornello]
-  <span class="c">Lam</span>                       
-  Guardami mentre cado a pezzi
-  <span class="c">Fa</span>                           
-  Mentre il muro sulle mani lascia i lividi
-             <span class="c">Do</span>         
-  Uccidimi, strappa la mia faccia dagli specchi 
-             <span class="c">Sol</span>
-  Vorrei mi vedessi mentre perdo i sensi 
-
-[Ritornello]
-        <span class="c">Lam</span>           
-  E se sapessi di me
-            <span class="c">Fa</span>                 
-  Che ho il terrore di chiudere gli occhi 
-   <span class="c">Do</span>                         
-  Che i miei sogni siano i vostri
-            <span class="c">Sol</span>                  
-  E ... che i disegni siano scarabocchi 
-        <span class="c">Lam</span>   
-  E se sapessi di me
-        <span class="c">Fa</span>                   
-  Che piuttosto che restare sola 
-       <span class="c">Do</span>                 
-  Mi confondo in mezzo alla gente
-              <span class="c">Fa</span>       <span class="c">Do</span>       <span class="c">Sol</span>    <span class="c">Lam</span>   <span class="c">Sol</span>      
-  Perché sto vuoto pesa più del niente 
-
-[Assolo] <span class="c">Lam</span> <span class="c">Fa</span> <span class="c">Do</span> <span class="c">Sol</span>
-
-[Outro]
-        <span class="c">Lam</span>           
-  E se sapessi di me
-            <span class="c">Fa</span>                 
-  Che ho il terrore di chiudere gli occhi 
-   <span class="c">Do</span>                         
-  Che i miei sogni siano i vostri
-            <span class="c">Sol</span>                  
-  E che i disegni siano scarabocchi 
-        <span class="c">Lam</span>   
-  E se sapessi di me
-        <span class="c">Fa</span>                   
-  Che piuttosto che restare sola 
-       <span class="c">Do</span>                 
-  Mi confondo in mezzo alla gente
-              <span class="c">Fa</span>       <span class="c">Do</span>       <span class="c">Sol</span>    <span class="c">Lam</span>   <span class="c">Sol</span>      
-  Perché sto vuoto pesa più del niente</pre>
-
-      <a href="index.html" class="torna-indietro">← Torna alla home</a>
-
-    </div>
-
-    <script>
-      const scale = ["Do", "Do#", "Re", "Re#", "Mi", "Fa", "Fa#", "Sol", "Sol#", "La", "La#", "Si"];
-      const noteMap = { "do": 0, "do#": 1, "re": 2, "re#": 3, "mi": 4, "fa": 5, "fa#": 6, "sol": 7, "sol#": 8, "la": 9, "la#": 10, "si": 11 };
-      let globalOffset = 0;
-
-      function transpose(step) {
-        globalOffset += step;
-        document.getElementById('key-offset').innerText = (globalOffset > 0 ? '+' : '') + globalOffset;
-        
-        document.querySelectorAll('.c').forEach(el => {
-          if (!el.hasAttribute('data-orig')) {
-
-            el.setAttribute('data-orig', el.innerText.trim());
-          }
-          let orig = el.getAttribute('data-orig');
-          
-         
-          let match = orig.match(/^([A-Za-z#]+)(.*)$/);
-          if (match) {
-            let root = match[1].replace(/[^\w#]/g, ''); 
-            let ext = match[2];
-            let rootLower = root.toLowerCase();
-            
-            if (noteMap[rootLower] !== undefined) {
-              let curIdx = noteMap[rootLower];
-              let newIdx = (curIdx + globalOffset) % 12;
-              if (newIdx < 0) newIdx += 12;
-              el.innerText = scale[newIdx] + ext;
-            }
-          }
-        });
-      }
-
-      let scrollId = null;
-      let isScrolling = false;
-      let currentPos = window.scrollY;
-
-      function toggleScroll() {
-        const btn = document.getElementById('scroll-btn');
-        if (isScrolling) {
-          cancelAnimationFrame(scrollId);
-          btn.innerText = "AVVIA";
-          btn.classList.remove('active');
-          isScrolling = false;
-        } else {
-          btn.innerText = "FERMA";
-          btn.classList.add('active');
-          isScrolling = true;
-          currentPos = window.scrollY;
-          runScroll();
-        }
-      }
-
-      function runScroll() {
-        if (!isScrolling) return;
-        const speed = parseFloat(document.getElementById('scroll-speed').value);
-        currentPos += speed / 2; 
-        window.scrollTo(0, Math.floor(currentPos));
-        scrollId = requestAnimationFrame(runScroll);
-      }
-
-      function updateSpeed() {}
-    </script>
- </body>
+    </div> </body>
 </html>
